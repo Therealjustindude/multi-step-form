@@ -3,19 +3,69 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Primary Colors */
+  --marine-blue: hsl(213, 96%, 18%);
+  --purplish-blue: hsl(243, 100%, 62%);
+  --pastel-blue: hsl(228, 100%, 84%);
+  --light-blue: hsl(206, 94%, 87%);
+  --strawberry-red: hsl(354, 84%, 57%);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Neutral Colors */
+  --cool-gray: hsl(231, 11%, 63%);
+  --light-gray: hsl(229, 24%, 87%);
+  --magnolia: hsl(217, 100%, 97%);
+  --alabaster: hsl(231, 100%, 99%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Typography */
+  --font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+  --font-size-paragraph: 16px;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family);
+  font-size: var(--font-size-paragraph);
+  color: var(--marine-blue); /* Default text color */
+  background: var(--alabaster); /* Default background color */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--marine-blue);
+  margin: 0.5rem 0;
+}
+
+a {
+  color: var(--purplish-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--strawberry-red);
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--marine-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-family);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--pastel-blue);
+}
+
+input, textarea {
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-family: var(--font-family);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--purplish-blue);
+  outline: none;
 }
