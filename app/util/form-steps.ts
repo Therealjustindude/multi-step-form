@@ -1,28 +1,51 @@
 export const formSteps: IFormSteps[] = [
 	{
-		step: 1,
-		description: 'YOUR INFO',
-		nextStep: 'step-two'
+		stepNumber: 1,
+		navDescription: 'YOUR INFO',
+		formTitle: 'Personal Info',
+		formDescription: 'Please provide your name, email address, and phone number.',
+		pathname: '/step-one',
+		prevStep: '/',
+		nextStep: '/step-two'
 	},
 	{
-		step: 2,
-		description: 'SELECT PLAN',
-		nextStep: 'step-three'
+		stepNumber: 2,
+		navDescription: 'SELECT PLAN',
+		formTitle: 'Select your plan',
+		formDescription: 'You have the option of monthly or yearly billing.',
+		pathname: '/step-two',
+		prevStep: '/step-one',
+		nextStep: '/step-three'
 	},
 	{
-		step: 3,
-		description: 'ADD-ONS',
-		nextStep: 'step-four'
+		stepNumber: 3,
+		navDescription: 'ADD-ONS',
+		formTitle: 'Pick add-ons',
+		formDescription: 'Add-ons help enhance your gaming experience.',
+		pathname: '/step-three',
+		prevStep: '/step-two',
+		nextStep: '/step-four'
 	},
 	{
-		step: 4,
-		description: 'SUMMARY',
+		stepNumber: 4,
+		navDescription: 'SUMMARY',
+		formTitle: 'Finishing up',
+		formDescription: 'Double-check everything looks OK before confirming.',
+		pathname: '/step-four',
+		prevStep: '/step-three',
 		nextStep: null
 	},
 ]
 
 export interface IFormSteps {
-	step: number,
-	description: string,
+	stepNumber: number,
+	navDescription: string,
+	formTitle: string,
+	formDescription: string,
+	// should match your routes
+	pathname: string,
+	// should match your routes
+	prevStep: null | string
+	// should match your routes
 	nextStep: null | string
 }

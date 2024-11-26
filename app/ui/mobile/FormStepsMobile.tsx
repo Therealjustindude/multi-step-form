@@ -1,6 +1,7 @@
 "use client";
 import { formSteps } from "@/app/util/form-steps";
 import clsx from "clsx";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const FormStepsMobile = () => {
@@ -15,11 +16,23 @@ export const FormStepsMobile = () => {
 			)}>
 				{formSteps?.map((step => {
 					return (
-						<div className="flex flex-row items-center" key={step.step}>
-							<div className="border-solid border-white border w-9 h-9 rounded-full flex items-center justify-center">
-								<span className="text-white text-md font-semibold">{step.step}</span>
+						<Link
+							href={step.pathname}
+							className="flex flex-row items-center gap-8 hover:no-underline"
+							key={step.stepNumber}
+						>
+							<div className={clsx("border-solid border-cool-gray border w-8 h-8 rounded-full flex items-center justify-center", 
+								{
+									'bg-light-blue': pathname === step.pathname
+								}
+							)}>
+								<span className={clsx("text-white text-sm font-semibold",
+									{
+										'text-black': pathname === step.pathname
+									}
+								)}>{step.stepNumber}</span>
 							</div>
-						</div>
+						</Link>
 					)
 				}))}
 			</ul>
