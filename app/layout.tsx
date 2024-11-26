@@ -7,15 +7,15 @@ import { FormStepsMobile } from "./ui/mobile/FormStepsMobile";
 import { FormStepsDesktop } from "./ui/desktop/FormStepsDektop";
 
 const ubuntuBold = localFont({
-  src: "./fonts/Ubuntu-Bold.ttf",
+  src: "./util/fonts/Ubuntu-Bold.ttf",
   variable: "--font-ubuntu-bold",
 });
 const ubuntuMedium = localFont({
-  src: "./fonts/Ubuntu-Medium.ttf",
+  src: "./util/fonts/Ubuntu-Medium.ttf",
   variable: "--font-ubuntu-medium",
 });
 const ubuntuRegular = localFont({
-  src: "./fonts/Ubuntu-Regular.ttf",
+  src: "./util/fonts/Ubuntu-Regular.ttf",
   variable: "--font-ubuntu-regular"
 });
 
@@ -43,16 +43,18 @@ export default function RootLayout({
           <main className="flex-grow p-4">
             {/* Grid for desktop */}
             <div className="h-screen md:grid md:items-center md:grid-cols-12 md:gap-4">
-              {/* Desktop steps */}
-              <FormStepsDesktop />
-              {/* Mobile steps */}
-              <FormStepsMobile />
+              <div className="flex flex-row justify-between md:col-span-12 p-4 bg-white rounded-xl shadow-xl h-[80vh]">
+                {/* Desktop steps */}
+                <FormStepsDesktop />
+                {/* Mobile steps */}
+                <FormStepsMobile />
 
-              {/* Form Content */}
-              <div className="md:col-span-8 p-6 bg-white rounded-xl shadow-md flex flex-col justify-between h-[70vh]">
-                {children}
-                {/* Desktop Next and Go Back buttons */}
-                <FormButtonsDesktop />
+                <div className="flex flex-col justify-between w-[100%] pt-14 pr-28 pb-4 pl-28">
+                  {/* Form Content */}
+                  {children}
+                  {/* Desktop Next and Go Back buttons */}
+                  <FormButtonsDesktop />
+                </div>
               </div>
             </div>
           </main>

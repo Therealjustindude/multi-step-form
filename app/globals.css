@@ -18,7 +18,7 @@
   --white: hsl(0, 0%, 100%);
 
   /* Typography */
-  --font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+  --font-family: 'var(--font-ubuntu-regular)', Arial, Helvetica, sans-serif;
   --font-size-paragraph: 16px;
 }
 
@@ -30,18 +30,26 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--marine-blue);
-  margin: 0.5rem 0;
+  font-family: var(--font-ubuntu-bold); /* Bold font for headings */
+}
+
+p, span, div {
+  font-family: var(--font-ubuntu-regular);
+}
+
+strong, b, label {
+  font-family: var(--font-ubuntu-medium); /* Medium font for emphasis */
 }
 
 a {
   color: var(--purplish-blue);
+  font-family: var(--font-ubuntu-regular);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--strawberry-red);
-  text-decoration: underline;
+  color: var(--marine-blue);
+  text-decoration: none;
 }
 
 button {
@@ -56,7 +64,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--purplish-blue);
+  background-color: var(--marine-blue);
   opacity: 0.8;
 }
 
@@ -64,7 +72,7 @@ input, textarea {
   border: 1px solid var(--cool-gray);
   border-radius: 0.25rem;
   padding: 0.5rem;
-  font-family: var(--font-family);
+  font-family: var(--font-ubuntu-medium);
 }
 
 input:focus, textarea:focus {
