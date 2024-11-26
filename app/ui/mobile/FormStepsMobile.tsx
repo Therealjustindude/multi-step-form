@@ -21,15 +21,16 @@ export const FormStepsMobile = () => {
 							className="flex flex-row items-center gap-8 hover:no-underline"
 							key={step.stepNumber}
 						>
-							<div className={clsx("border-solid border-cool-gray border w-8 h-8 rounded-full flex items-center justify-center", 
+							<div className={clsx("border-solid border-cool-gray border w-8 h-8 rounded-full flex items-center justify-center shadow-md", 
 								{
 									'bg-light-blue': pathname === step.pathname
 								}
 							)}>
-								<span className={clsx("text-white text-sm font-semibold",
+								<span className={clsx("text-sm font-semibold",
 									{
-										'text-black': pathname === step.pathname
-									}
+                    "text-black": pathname === step.pathname,
+                    "text-white": pathname !== step.pathname,
+                  }
 								)}>{step.stepNumber}</span>
 							</div>
 						</Link>

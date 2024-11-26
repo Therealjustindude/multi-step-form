@@ -6,7 +6,7 @@ export const FormButtonsMobile = () => {
 	const pathname = usePathname();
 
 	return (
-		<footer className={clsx("sticky bottom-0 w-full bg-white p-4 border-t shadow md:hidden flex items-center justify-between",
+		<footer className={clsx("sticky bottom-0 w-full bg-white p-4 border-t md:hidden flex items-center justify-between",
 			{
 				'hidden': pathname === '/'
 			}
