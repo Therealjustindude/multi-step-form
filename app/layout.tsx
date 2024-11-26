@@ -37,19 +37,19 @@ export default function RootLayout({
       <body
         className={`${ubuntuRegular.variable} ${ubuntuMedium.variable} ${ubuntuBold.variable} antialiased`}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col h-[100vh] overflow-hidden md:bg-magnolia">
           {/* Mobile BG Image */}
-          <div className="md:hidden absolute top-0 left-0 w-full h-[30%] bg-center z-[-20] bg-[url('/bg-sidebar-mobile.svg')] bg-no-repeat bg-cover"/>
+          <div className="md:hidden absolute top-0 left-0 w-full h-[20%] bg-center z-[-20] bg-[url('/bg-sidebar-mobile.svg')] bg-no-repeat bg-cover"/>
           <main className="flex-grow p-4">
             {/* Grid for desktop */}
-            <div className="h-screen md:grid md:grid-cols-12 md:gap-4 md:h-[97vh]">
+            <div className="h-screen md:grid md:items-center md:grid-cols-12 md:gap-4">
               {/* Desktop steps */}
               <FormStepsDesktop />
               {/* Mobile steps */}
               <FormStepsMobile />
 
               {/* Form Content */}
-              <div className="md:col-span-8 p-6 bg-white rounded-xl shadow-md flex flex-col justify-between h-auto">
+              <div className="md:col-span-8 p-6 bg-white rounded-xl shadow-md flex flex-col justify-between h-[70vh]">
                 {children}
                 {/* Desktop Next and Go Back buttons */}
                 <FormButtonsDesktop />

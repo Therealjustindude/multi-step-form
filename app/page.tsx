@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center h-screen gap-2">
+    <div className="flex flex-col justify-center items-center h-[100%] gap-2">
       <p className="font-bold text-lg">Hello world!</p>
       <Link
         href="/step-one"

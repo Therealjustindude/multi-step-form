@@ -1,4 +1,4 @@
-export const FormSteps: IFormSteps[] = [
+export const formSteps: IFormSteps[] = [
 	{
 		step: 1,
 		description: 'YOUR INFO',
