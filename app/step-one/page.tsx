@@ -1,10 +1,11 @@
 "use client";
+import { useFormContext } from "react-hook-form";
 import { ControlSwitch } from "../util/ControlSwitch";
-import { formSteps } from "../util/form-steps";
 import { multiStepForm } from "../util/multi-step-form";
+
 export default function Page() {
 	const currStep = multiStepForm['steps']['step-one'];
-
+	const { register } = useFormContext();
 	return (
 		<div className="flex flex-col justify-center items-start w-[100%]">
 			<div className="flex flex-col gap-2 mb-6">
@@ -18,7 +19,7 @@ export default function Page() {
 						currStep.controls.map(({ control }) => {
 							return (
 								<div className="space-y-1 md:space-y-2" key={control.label}>
-									<ControlSwitch control={control} />
+									<ControlSwitch control={control} rhfRegister={register} />
 								</div>
 							)
 						})
