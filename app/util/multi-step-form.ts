@@ -1,3 +1,5 @@
+import { RegisterOptions } from "react-hook-form";
+
 export const multiStepForm: IMultiStepForm = {
 	steps: {
 		'step-one' : {
@@ -8,6 +10,7 @@ export const multiStepForm: IMultiStepForm = {
 				{
 					control: {
 						type: 'text',
+						formRegister: 'name',
 						label: 'Name',
 						placeholder: 'e.g. Stephen King',
 					}
@@ -15,17 +18,37 @@ export const multiStepForm: IMultiStepForm = {
 				{
 					control: {
 						type: 'email',
+						formRegister: 'email',
 						label: 'Email Address',
-						placeholder: 'stephenking@lorem.com',
-						required: true
+						placeholder: '',
+						validation: {
+							required: 'Email is required',
+							pattern: {
+								value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+								message: 'Invalid email format'
+							}
+						}
 					}
 				},
 				{
 					control: {
 						type: 'phone',
+						formRegister: 'phoneNumber',
 						label: 'Phone Number',
-						placeholder: '123-456-7890',
-						required: true
+						placeholder: '',
+						validation: {
+							required: 'Phone number is required',
+							validate: (value) => {
+								const cleanValue = value.replace(/[-() ]/g, '');
+								if (cleanValue.length < 10) {
+									return 'Phone: minimum 10 digits';
+								}
+								if (cleanValue.length > 10) {
+									return 'Phone: maximum 10 digits';
+								}
+								return true;
+							}
+						}
 					}
 				},
 			]
@@ -35,7 +58,14 @@ export const multiStepForm: IMultiStepForm = {
 			formTitle: 'Select your plan',
 			formDescription: 'You have the option of monthly or yearly billing.',
 			controls: [
-				
+				{
+					control: {
+						type: 'text',
+						formRegister: 'test',
+						label: 'Test input',
+						placeholder: 'test input'
+					}
+				},
 			]
 		},
 		'step-three' : {
@@ -43,7 +73,14 @@ export const multiStepForm: IMultiStepForm = {
 			formTitle: 'Pick add-ons',
 			formDescription: 'Add-ons help enhance your gaming experience.',
 			controls: [
-				
+				{
+					control: {
+						type: 'text',
+						formRegister: 'testOne',
+						label: 'Test One input',
+						placeholder: 'test input'
+					}
+				},
 			]
 		},
 		'step-four' : {
@@ -60,10 +97,10 @@ export const multiStepForm: IMultiStepForm = {
 export type ControllerType = {
 	type: 'text' | 'phone' | 'email' | 'checkbox' | 'select' | 'radio';
 	label: string;
-  placeholder?: string;  // Optional placeholder for text inputs
-  options?: string[];    // Optional options for select inputs (e.g., ['Option 1', 'Option 2'])
-  required?: boolean;    // Optional flag to mark the input as required
-  // Add more properties as needed in the future
+	formRegister: string;
+	validation?: RegisterOptions;
+  placeholder?: string;
+  options?: string[]; 
 };
 
 export interface IMultiStepForm {

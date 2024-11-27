@@ -79,3 +79,14 @@ input:focus, textarea:focus {
   border-color: var(--purplish-blue);
   outline: none;
 }
+
+.custom-toast-container {
+  width: 400px; /* Default width for desktop */
+}
+
+@media (max-width: 768px) {
+  .custom-toast-container {
+    width: 90%; /* Adjust the width for mobile (smaller screen size) */
+    margin-left: 5%;
+  }
+}
