@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { formSteps } from "@/app/util/form-steps";
 import { useFormContext } from "react-hook-form";
 import { toast } from "react-toastify";
+import { validationSchema } from "@/app/util/yup-validation-schema";
 
 export const FormButtonsDesktop = () => {
 	const pathname = usePathname();
@@ -19,11 +20,18 @@ export const FormButtonsDesktop = () => {
 		}
 	}
 
-	const onSubmit = (data: any) => {
-		console.log('Form submitted with data:', data);
-		// send this data somewhere
-  };
+	const onSubmit = async (data: any) => {
+		try {
+			await validationSchema.validate(data, { abortEarly: false });
+			console.log('Form is valid!');
+		} catch (errors: any) {
+			errors.inner.forEach((err: any) => {
+				toast.error(err.message);
+			});
+		}
+	};
 	const handleConfirmClick = handleSubmit(onSubmit);
+	
 
 	const handleNextClick = async () => {
     const isValid = await trigger();
