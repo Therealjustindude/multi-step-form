@@ -90,3 +90,14 @@ input:focus, textarea:focus {
     margin-left: 5%;
   }
 }
+
+@media (max-height: 746px) {
+  .overflow-y-auto-on-short {
+    overflow-y: auto;
+  }
+}
+@media (max-width: 318px) {
+  .overflow-x-auto-on-short {
+    overflow-x: auto;
+  }
+}

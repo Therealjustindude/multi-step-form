@@ -7,8 +7,8 @@ import { PhoneControl } from "../ui/Controls/PhoneControl";
 export default function Page() {
 	const { control: formControl } = useFormContext();
 	return (
-		<div className="flex flex-col justify-center items-start w-[100%]">
-			<div className="flex flex-col gap-2 mb-6">
+		<div className="flex flex-col justify-center gap-10 items-start w-[100%]">
+			<div className="flex flex-col gap-2">
 				<h1 className="font-extrabold text-2xl md:text-4xl">Personal Info</h1>
 				<p className="text-cool-gray font-semibold">Please provide your name, email address, and phone number.</p>
 			</div>

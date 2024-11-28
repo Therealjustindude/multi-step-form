@@ -21,6 +21,7 @@ export const FormButtonsDesktop = () => {
 	}
 
 	const onSubmit = async (data: any) => {
+		console.log('Form Data:', data)
 		try {
 			await validationSchema.validate(data, { abortEarly: false });
 			console.log('Form is valid!');
