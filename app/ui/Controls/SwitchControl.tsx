@@ -1,4 +1,5 @@
-import { SwitchOptions } from "@/app/step-two/page";
+
+import { SwitchOptions } from "@/app/util/billingCycles";
 import { Control, Controller, RegisterOptions } from "react-hook-form";
 
 export const SwitchControl: React.FC<ISwitchControl> = ({

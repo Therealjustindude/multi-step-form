@@ -13,7 +13,7 @@ export const MultiSelectCheckboxControl: React.FC<IMultiSelectCheckboxControl> =
 			name={formName}
 			control={formControl} 
 			rules={rules}
-			render={({ field, fieldState }) => {
+			render={({ field }) => {
 				const selectedOptions: string[] = field.value || [];
 
         const handleToggle = (value: string) => {

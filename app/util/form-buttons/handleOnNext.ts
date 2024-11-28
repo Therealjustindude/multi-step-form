@@ -1,6 +1,6 @@
-import { FieldErrors, FieldValues, useFormContext, UseFormTrigger } from "react-hook-form";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FieldErrors, FieldValues, UseFormTrigger } from "react-hook-form";
 import { IFormSteps } from "../form-steps";
-import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 

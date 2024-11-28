@@ -7,7 +7,7 @@ import { planTypes } from "../util/planTypes";
 import { addOnItems, UpdatedCheckBoxItem } from "../util/addOns";
 
 export default function Page() {
-	const { control: formControl, getValues } = useFormContext();
+	const { getValues } = useFormContext();
 	const formValues = getValues();
 	const currBillingCycle = billingCycles?.find(cycle => cycle.value === formValues.billingCycle)
 	const currPlan = planTypes?.find(plan => plan.value === formValues.planType)

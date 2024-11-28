@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { toast } from "react-toastify";
 import { validationSchema } from "../yup-validation-schema";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";

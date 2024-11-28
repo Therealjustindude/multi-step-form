@@ -1,10 +1,4 @@
 "use client";
-
-import Link from "next/link";
-import { useFormContext } from "react-hook-form";
-import { billingCycles } from "../util/billingCycles";
-import { planTypes } from "../util/planTypes";
-import { addOnItems, UpdatedCheckBoxItem } from "../util/addOns";
 import Image from "next/image";
 
 export default function Page() {
