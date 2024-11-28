@@ -46,9 +46,9 @@ export const ButtonGroupControl: React.FC<IButtonGroupControl> = ({
 										field.onChange(item.value)
 									}}
 									className={clsx(
-										'flex flex-grow max-h-[172px] gap-4 items-center md:items-start md:gap-2 md:flex-col md:justify-between md:pt-4 md:pb-4 md:h-52 md:w-40 text-black border-solid rounded-md hover:bg-alabaster',
+										'flex flex-grow max-h-[172px] gap-4 items-center md:items-start md:gap-2 md:flex-col md:justify-between md:pt-4 md:pb-4 md:h-52 md:w-40 text-black border-solid rounded-md hover:bg-magnolia',
 										{
-											'active border-purplish-blue bg-magnolia border-opacity-25': field.value === item.value,
+											'active border-2 border-purplish-blue bg-magnolia': field.value === item.value,
 											'bg-transparent': field.value !== item.value,
 										}
 									)}

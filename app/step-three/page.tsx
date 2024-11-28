@@ -38,7 +38,7 @@ export default function Page() {
 			</div>
 			<form className="w-[100%]">
 				{/* Form fields go here */}
-				<div className="flex flex-col gap-2 md:gap-4 w-[100%]">
+				<div className="flex flex-col gap-2 md:gap-4">
 					<MultiSelectCheckboxControl
 						checkboxItems={updatedCheckboxItems}
 						formName="addOns"
