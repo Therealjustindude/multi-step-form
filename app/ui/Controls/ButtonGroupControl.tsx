@@ -1,7 +1,8 @@
-import { UpdatedButtonGroupItem } from "@/app/step-two/page";
+
 import { Control, Controller, RegisterOptions } from "react-hook-form";
 import Image from 'next/image'
 import { clsx } from "clsx";
+import { UpdatedButtonGroupItem } from "@/app/util/planTypes";
 
 export const ButtonGroupControl: React.FC<IButtonGroupControl> = ({
 	formName,
@@ -62,7 +63,13 @@ export const ButtonGroupControl: React.FC<IButtonGroupControl> = ({
 									</div>
 									<div className="flex flex-col items-start">
 										<div className="font-semibold text-md">{item.name}</div>
-										<div className="font-medium text-cool-gray text-sm">{item.price}</div>
+										<div className="font-medium text-cool-gray text-sm">
+											{
+												item.billingCycle === 'monthly'
+													? `$${item.price}/mo`
+													: `$${item.price}/yr`
+											}
+										</div>
 										<div className="text-sm">{item.extra}</div>
 									</div>
 								</button>

@@ -14,7 +14,8 @@ export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
       email: '',
 			phoneNumber: '',
 			planType: '',
-			billingCycle: 'monthly'
+			billingCycle: 'monthly',
+			addOns: []
 		},
 		mode: 'onBlur',
   });

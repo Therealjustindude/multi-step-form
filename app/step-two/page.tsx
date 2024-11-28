@@ -3,33 +3,37 @@ import { useFormContext } from "react-hook-form";
 import { ButtonGroupControl } from "../ui/Controls/ButtonGroupControl";
 import { useState } from "react";
 import { SwitchControl } from "../ui/Controls/SwitchControl";
+import { billingCycles, BillingCycleValue } from "../util/billingCycles";
+import { planTypes, UpdatedButtonGroupItem } from "../util/planTypes";
 
 export default function Page() {
 	const { control: formControl, getValues } = useFormContext();
-	const [billingCycle, setBillingCycle] = useState<SwitchValue>(getValues('billingCycle') || 'monthly');
+	const [billingCycle, setBillingCycle] = useState<BillingCycleValue>(getValues('billingCycle') || 'monthly');
 	let updatedButtonGroupItems: UpdatedButtonGroupItem[] = [];
 
   const handleSwitchChange = (newVal: string) => {
-    const newBillingCycle = newVal as SwitchValue;
+    const newBillingCycle = newVal as BillingCycleValue;
     setBillingCycle(newBillingCycle);
 	};
 	
 	if (billingCycle === 'monthly') {
-		updatedButtonGroupItems = btnGroupItems.map((item) => {
+		updatedButtonGroupItems = planTypes.map((item) => {
 			return ({
 				name: item.name,
 				value: item.value,
-				price: item.monthlyPrice + '/mo'
+				billingCycle: billingCycle,
+				price: item.monthlyPrice
 			});
 		})
 	}
 
 	if (billingCycle === 'yearly') {
-		updatedButtonGroupItems = btnGroupItems.map((item) => {
+		updatedButtonGroupItems = planTypes.map((item) => {
 			return ({
 				name: item.name,
 				value: item.value,
-				price: item.yearlyPrice + '/yr',
+				billingCycle: billingCycle,
+				price: item.yearlyPrice,
 				extra: item.extra
 			});
 		})
@@ -58,7 +62,7 @@ export default function Page() {
 						<SwitchControl
 							formControl={formControl}
 							formName="billingCycle"
-							options={switchOptions}
+							options={billingCycles}
 							handleOnClick={handleSwitchChange}
 						/>
 					</div>
@@ -67,56 +71,3 @@ export default function Page() {
 		</div>
 	);
 }
-
-export type ButtonGroupItem = {
-	name: string;
-  value: string;
-  yearlyPrice: string;
-  monthlyPrice: string;
-  extra: string;
-};
-
-export type UpdatedButtonGroupItem = {
-  name: string;
-  value: string;
-  price: string;
-  extra?: string;
-};
-
-const btnGroupItems: ButtonGroupItem[] = [
-	{ 
-		name: 'Arcade',
-		value: 'arcade', 
-		monthlyPrice: '$9', 
-		yearlyPrice: '$90', 
-		extra: '2 months free'
-	},
-	{ 
-		name: 'Advanced',
-		value: 'advanced', 
-		monthlyPrice: '$12', 
-		yearlyPrice: '$120', 
-		extra: '2 months free'
-	},
-	{ 
-		name: 'Pro',
-		value: 'pro', 
-		monthlyPrice: '$15', 
-		yearlyPrice: '$150', 
-		extra: '2 months free' 
-	},
-]
-
-// billingCycle
-export type SwitchValue = 'monthly' | 'yearly'
-export type SwitchOptions = {
-  label: string;
-  value: SwitchValue;
-};
-const switchOptions: [
-	SwitchOptions,
-	SwitchOptions
-] = [
-	{ label: 'Monthly', value: 'monthly' },
-	{ label: 'Yearly', value: 'yearly' }
-]
