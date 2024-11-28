@@ -82,7 +82,7 @@ export default function Page() {
 						</div>
 						<div>
 							{currPlan
-								? <span className="font-semibold text-lg">
+								? <span className="font-extrabold text-md">
 										{
 											currBillingCycle?.value === 'monthly'
 												? `$${currPlanPrice}/mo`
@@ -125,7 +125,7 @@ export default function Page() {
 								: 'Total (per year)'
 						}
 					</div>
-					<div className="font-medium text-md text-cool-gray">
+					<div className="font-extrabold text-xl text-purplish-blue">
 						{
 							currBillingCycle?.value === 'monthly'
 								? `+$${total}/mo`
