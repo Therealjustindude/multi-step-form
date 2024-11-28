@@ -26,11 +26,20 @@ export const formSteps: IFormSteps[] = [
 		navDescription: 'SUMMARY',
 		pathname: '/step-four',
 		prevStep: '/step-three',
+		nextStep: '/thank-you'
+	},
+	{
+		hideFromNav: true,
+		stepNumber: 5,
+		navDescription: 'THANK YOU',
+		pathname: '/thank-you',
+		prevStep: '/step-four',
 		nextStep: null
 	},
 ]
 
 export interface IFormSteps {
+	hideFromNav?: boolean
 	stepNumber: number,
 	navDescription: string,
 	// should match your routes

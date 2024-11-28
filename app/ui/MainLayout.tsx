@@ -1,11 +1,12 @@
 'use client';
 import { FormProvider, useForm } from "react-hook-form";
-import { FormStepsMobile } from "./mobile/FormStepsMobile";
-import { FormStepsDesktop } from "./desktop/FormStepsDektop";
+import { FormNavStepsMobile } from "./mobile/FormNavStepsMobile";
+import { FormNavStepsDesktop } from "./desktop/FormNavStepsDesktop";
 import { FormButtonsDesktop } from "./desktop/FormButtonsDesktop";
 import { FormButtonsMobile } from "./mobile/FormButtonsMobile";
 import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
+import { usePathname } from "next/navigation";
 
 export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const methods = useForm({
@@ -18,7 +19,8 @@ export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 			addOns: []
 		},
 		mode: 'onBlur',
-  });
+	});
+	const pathname = usePathname();
 
 	return (
 		<FormProvider {...methods}>
@@ -44,23 +46,27 @@ export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 					{/* Grid for desktop */}
 					<div className="h-screen md:grid md:items-center md:grid-cols-12 md:gap-4">
 						{/* Mobile steps */}
-						<FormStepsMobile />
+						<FormNavStepsMobile />
 						<div className="flex flex-row justify-between md:h-[80vh] md:col-span-12 p-4 bg-white rounded-xl shadow-xl min-h-[600px] max-h-[700px]">
 							{/* Desktop steps */}
-							<FormStepsDesktop />
+							<FormNavStepsDesktop />
 
 							<div className="flex flex-col justify-between w-[100%] md:min-w-[60%] md:max-w-[60%] mr-auto ml-auto pt-4 pr-2 pb-4 pl-2 md:pt-12 md:pr-14 md:pb-4 md:pl-14">
 								{/* Form Content */}
 								{children}
 								{/* Desktop Next and Go Back buttons */}
-								<FormButtonsDesktop />
+								{pathname !== '/thank-you' &&
+									<FormButtonsDesktop />
+								}
 							</div>
 						</div>
 					</div>
 				</main>
 
 				{/* Mobile Next and Go Back buttons */}
-				<FormButtonsMobile />
+				{pathname !== '/thank-you' && 
+					<FormButtonsMobile />
+				}
 			</div>
 		</FormProvider>
 	);

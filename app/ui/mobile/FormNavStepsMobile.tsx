@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export const FormStepsMobile = () => {
+export const FormNavStepsMobile = () => {
 	const pathname = usePathname();
 
 	return (
@@ -14,7 +14,7 @@ export const FormStepsMobile = () => {
 					'hidden': pathname === '/'
 				}
 			)}>
-				{formSteps?.map((step => {
+				{formSteps?.filter(step => !step?.hideFromNav)?.map((step => {
 					return (
 						<Link
 							href={step.pathname}

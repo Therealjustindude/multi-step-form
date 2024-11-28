@@ -15,7 +15,7 @@ export const FormButtonsDesktop = () => {
 	const { handleSubmit, formState: { errors }, trigger } = useFormContext();
 	const currStep = formSteps.find(step => step.pathname === pathname);
 
-	const handleConfirmClick = handleSubmit(handleOnSubmit);
+	const handleConfirmClick = handleSubmit(data => handleOnSubmit({data, router, currStep}));
 	
 	return (
 		<div
@@ -33,7 +33,7 @@ export const FormButtonsDesktop = () => {
 			>
 				Go Back
 			</button>
-			{currStep?.nextStep === null ? (
+			{currStep?.nextStep === '/thank-you' ? (
 				<button
 					type="button"
 					className="btn ml-auto bg-purplish-blue hover:bg-purplish-blue opacity-90"

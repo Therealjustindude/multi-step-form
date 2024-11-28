@@ -14,7 +14,7 @@ export const FormButtonsMobile = () => {
 	const { handleSubmit, formState: { errors }, trigger } = useFormContext();
 	const currStep = formSteps.find(step => step.pathname === pathname);
 
-	const handleConfirmClick = handleSubmit(handleOnSubmit);
+	const handleConfirmClick = handleSubmit(data => handleOnSubmit({data, router, currStep}));
 	
 	return (
 		<footer className={clsx("sticky bottom-0 w-full bg-white p-4 border-t md:hidden flex items-center justify-between",
@@ -29,7 +29,7 @@ export const FormButtonsMobile = () => {
 			>
 				Go Back
 			</button>
-			{currStep?.nextStep === null ? (
+			{currStep?.nextStep === '/thank-you' ? (
 				<button
 					type="button"
 					className="btn ml-auto bg-purplish-blue hover:bg-purplish-blue opacity-90"
