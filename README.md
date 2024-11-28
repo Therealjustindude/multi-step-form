@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Mentor Challenge with Next.js
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It incorporates a Frontend Mentor challenge, adhering to a specified front-end style guide.
 
 ## Getting Started
 
@@ -16,21 +18,40 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Responsive design optimized for mobile and desktop.
+- Accessible forms with validation using ***Yup*** and ***React Hook Form***.
+- Real-time feedback with ***Toastify*** notifications.
 
-## Learn More
+## Front-end Style Guide
 
-To learn more about Next.js, take a look at the following resources:
+#### Design Widths:
+- Mobile: 375px
+- Desktop: 1440px
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Colors
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Primary
+- Marine Blue: ```hsl(213, 96%, 18%)```
+- Purplish Blue: ```hsl(243, 100%, 62%)```
+- Pastel Blue: ```hsl(228, 100%, 84%)```
+- Light Blue: ```hsl(206, 94%, 87%)```
+- Strawberry Red: ```hsl(354, 84%, 57%)```
 
-## Deploy on Vercel
+#### Neutral
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Cool Gray: ```hsl(231, 11%, 63%)```
+- Light Gray: ```hsl(229, 24%, 87%)```
+- Magnolia: ```hsl(217, 100%, 97%)```
+- Alabaster: ```hsl(231, 100%, 99%)```
+- White: ```hsl(0, 0%, 100%)```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Typography
+- Body Copy: Font size (paragraph) - 16px
+- Font Family: Ubuntu
+- Font Weights: 400, 500, 700
+
+
+### License
+This project is licensed under the MIT License. See the LICENSE file for details.
