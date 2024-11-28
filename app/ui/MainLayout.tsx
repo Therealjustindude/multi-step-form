@@ -13,7 +13,8 @@ export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
       name: '',
       email: '',
 			phoneNumber: '',
-			test: ''
+			planType: '',
+			billingCycle: ''
 		},
 		mode: 'onBlur',
   });
