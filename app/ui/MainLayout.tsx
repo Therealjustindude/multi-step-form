@@ -47,7 +47,7 @@ export const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 					<div className="h-screen md:grid md:items-center md:grid-cols-12 md:gap-4">
 						{/* Mobile steps */}
 						<FormNavStepsMobile />
-						<div className="flex flex-row justify-between md:h-[80vh] md:col-span-12 p-4 bg-white rounded-xl shadow-xl min-h-[600px] max-h-[700px]">
+						<div className="flex flex-row justify-between md:min-h-[600px] md:max-h-[700px] md:h-[80vh] md:col-span-12 p-4 bg-white rounded-xl shadow-xl ">
 							{/* Desktop steps */}
 							<FormNavStepsDesktop />
 
