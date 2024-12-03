@@ -1,5 +1,5 @@
 # Frontend Mentor Challenge with Next.js
-
+![alt text](public/mulit-step-form-snapshot.png)
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It incorporates a Frontend Mentor challenge, adhering to a specified front-end style guide.
 
 ## Getting Started
